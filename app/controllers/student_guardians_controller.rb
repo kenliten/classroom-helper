@@ -1,5 +1,6 @@
 class StudentGuardiansController < ApplicationController
   before_action :set_student_guardian, only: %i[ show edit update destroy ]
+  layout 'dashboard'
 
   # GET /student_guardians or /student_guardians.json
   def index
@@ -21,7 +22,9 @@ class StudentGuardiansController < ApplicationController
 
   # POST /student_guardians or /student_guardians.json
   def create
-    @student_guardian = StudentGuardian.new(student_guardian_params)
+    @student = Student.find(params[:student_id])
+    @student_guardian = @student.student_guardians.create(student_guardian_params)
+    return redirect_to student_url(@student)
 
     respond_to do |format|
       if @student_guardian.save
@@ -38,7 +41,7 @@ class StudentGuardiansController < ApplicationController
   def update
     respond_to do |format|
       if @student_guardian.update(student_guardian_params)
-        format.html { redirect_to student_guardian_url(@student_guardian), notice: "Student guardian was successfully updated." }
+        format.html { redirect_to student_student_guardian_url(@student_guardian), notice: "Student guardian was successfully updated." }
         format.json { render :show, status: :ok, location: @student_guardian }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -49,10 +52,11 @@ class StudentGuardiansController < ApplicationController
 
   # DELETE /student_guardians/1 or /student_guardians/1.json
   def destroy
+    @student = @student_guardian.student
     @student_guardian.destroy
 
     respond_to do |format|
-      format.html { redirect_to student_guardians_url, notice: "Student guardian was successfully destroyed." }
+      format.html { redirect_to student_path(@student), notice: "Student guardian was successfully destroyed." }
       format.json { head :no_content }
     end
   end

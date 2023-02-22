@@ -22,12 +22,12 @@
 
   <p class="my-2">
     <strong class="block font-medium mb-1">Sexo:</strong>
-    <%= student.gender %>
+    <%= student.gender == 'MALE' ? 'Masculino' : 'Femenino' %>
   </p>
 
   <p class="my-2">
     <strong class="block font-medium mb-1">Fecha de Nacimiento:</strong>
-    <%= student.birth_date %>
+    <%= "#{student.birth_date.day}/#{student.birth_date.month}/#{student.birth_date.year}" if student.birth_date %>
   </p>
 
   <p class="my-2">
@@ -67,94 +67,18 @@
 
   <p class="my-2">
     <strong class="block font-medium mb-1">Fecha de ingreso:</strong>
-    <%= student.check_in_date %>
+    <%= "#{student.check_in_date.day}/#{student.check_in_date.month}/#{student.check_in_date.year}" if student.check_in_date %>
   </p>
 
   <p class="my-2">
     <strong class="block font-medium mb-1">Fecha de retiro:</strong>
-    <%= student.check_out_date %>
+    <%= "#{student.check_out_date.day}/#{student.check_out_date.month}/#{student.check_out_date.year}" if student.check_out_date %>
   </p>
 
   <p class="my-2">
     <strong class="block font-medium mb-1">Condici&oacute;n inicial:</strong>
     <%= translate_initial_condition(student.initial_condition) %>
   </p>
-</div>
-
-<h2 class="text-xl">Padres, Madres y/o Tutores</h2>
-<div class="mb-4">
-  <% @student.student_guardians.each do |guardian| %>
-    <div><%= guardian.fullname %></div>
-  <% end %>
-</div>
-
-<div class="my-4">
-  <%= form_with(model: [@student, @student.student_guardians.build], class: "contents") do |form| %>
-
-    <div class="my-5">
-      <%= form.label :firstname %>
-      <%= form.text_field :firstname, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-    </div>
-
-    <div class="my-5">
-      <%= form.label :lastname %>
-      <%= form.text_field :lastname, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-    </div>
-
-    <div class="my-5">
-      <%= form.label :relationship %>
-      <%= form.text_field :relationship, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-    </div>
-
-    <div class="my-5">
-      <%= form.label :nid %>
-      <%= form.text_field :nid, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-    </div>
-
-    <div class="my-5">
-      <%= form.label :address %>
-      <%= form.text_field :address, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-    </div>
-
-    <div class="my-5">
-      <%= form.label :place %>
-      <%= form.text_field :place, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-    </div>
-
-    <div class="my-5">
-      <%= form.label :city %>
-      <%= form.text_field :city, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-    </div>
-
-    <div class="my-5">
-      <%= form.label :phone %>
-      <%= form.text_field :phone, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-    </div>
-
-    <div class="my-5">
-      <%= form.label :work_phone %>
-      <%= form.text_field :work_phone, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-    </div>
-
-    <div class="my-5">
-      <%= form.label :occupation %>
-      <%= form.text_field :occupation, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-    </div>
-
-    <div class="my-5">
-      <%= form.label :education_level %>
-      <%= form.text_field :education_level, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-    </div>
-
-    <div class="my-5">
-      <%= form.label :notes %>
-      <%= form.text_area :notes, rows: 4, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-    </div>
-
-    <div class="inline">
-      <%= form.submit 'Guardar', class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
-    </div>
-  <% end %>
 </div>
 
 <% else %>

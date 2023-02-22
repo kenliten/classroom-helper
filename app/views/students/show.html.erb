@@ -1,7 +1,30 @@
 <div class="mx-auto md:w-2/3 w-full flex">
   <div class="mx-auto">
 
+    <h1 class="text-4xl mb-4"><%= @student.fullname %></h1>
+
     <%= render @student %>
+
+    <hr class="my-4">
+
+    <h2 class="text-2xl">Padres, Madres y/o Tutores</h2>
+    <div class="mb-4">
+      <% @student.student_guardians.each_with_index do |guardian, i| %>
+        <div class="my-4 flex justify-between">
+          <span>
+            <%= i + 1 %>. <%= guardian.fullname %> (<%= guardian.relationship %>). <%= guardian.phone %>
+          </span>
+          <%= link_to 'Detalles', student_student_guardian_path(@student, guardian), class:'btn-primary inline-block ml-auto' %>
+        </div>
+      <% end %>
+    </div>
+
+    <hr class="my-4">
+
+    <div class="my-4">
+      <h3 class="text-xl">Agregar Tutor</h3>
+      <%= render 'student_guardians/form', student_guardian: [@student, @student.student_guardians.build] %>
+    </div>
 
     <%= link_to 'Editar', edit_student_path(@student), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <div class="inline-block ml-2">
