@@ -1,0 +1,39 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  classroom: one
+  firstname: MyString
+  lastname: MyString
+  nationality: MyString
+  gender: MyString
+  birth_date: 2023-02-22
+  birth_book: MyString
+  birth_folio: MyString
+  guardian_relationship: MyString
+  alergies: MyString
+  drugs: MyString
+  emergency_contact_name: MyString
+  emergency_contact_phone: MyString
+  check_in_date: 2023-02-22
+  check_out_date: 2023-02-22
+  initial_condition: MyString
+  user: one
+
+two:
+  classroom: two
+  firstname: MyString
+  lastname: MyString
+  nationality: MyString
+  gender: MyString
+  birth_date: 2023-02-22
+  birth_book: MyString
+  birth_folio: MyString
+  guardian_relationship: MyString
+  alergies: MyString
+  drugs: MyString
+  emergency_contact_name: MyString
+  emergency_contact_phone: MyString
+  check_in_date: 2023-02-22
+  check_out_date: 2023-02-22
+  initial_condition: MyString
+  user: two

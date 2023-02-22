@@ -1,0 +1,12 @@
+<div id="<%= dom_id subject %>">
+  <div class="flex items-center my-4">
+    <p class="flex-auto text-xl cursive"><%= translate_subject subject.name %></p>
+
+    <% if action_name != "show" %>
+      <%= link_to 'Eliminar', subject, data: { turbo_method: :delete, turbo_confirm: 'Deseas eliminar este curso?' }, class: "rounded-lg py-3 px-5 border border-red-500 text-red-500 hover:text-white hover:bg-red-500 inline-block font-medium mr-2" %>
+      <%= link_to 'Editar', edit_subject_path(subject), class: "rounded-lg py-3 mr-2 px-5 bg-gray-100 inline-block font-medium" %>
+      <%= link_to "Mostrar", subject, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+      <hr class="mt-6">
+    <% end %>
+  </div>
+</div>

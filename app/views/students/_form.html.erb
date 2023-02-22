@@ -1,0 +1,115 @@
+<%= form_with(model: student, class: "contents") do |form| %>
+  <% if student.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+      <h2><%= pluralize(student.errors.count, "error") %> prohibited this student from being saved:</h2>
+
+      <ul>
+        <% student.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="my-4">
+    <%= form.label :classroom_id, 'Curso' %>
+    <%= form.select :classroom_id, current_user.classrooms.collect { |c| [c.name, c.id] }, {}, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="flex my-4">
+    <div class="flex-auto mr-2">
+      <%= form.label :firstname, 'Nombre(s)' %>
+      <%= form.text_field :firstname, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+
+    <div class="flex-auto">
+      <%= form.label :lastname, 'Apellido(s)' %>
+      <%= form.text_field :lastname, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+  </div>
+
+  <div class="flex my-4">
+    <div class="flex-auto mr-2">
+      <%= form.label :nationality, 'Nacionalidad' %>
+      <%= form.text_field :nationality, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+
+    <div class="flex-auto">
+      <%= form.label :gender, 'Sexo' %>
+      <%= form.select :gender, [['Masculino', 'MALE'], ['Femenino', 'FEMALE']], {}, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+  </div>
+
+  <div class="flex my-4">
+    <div class="flex-auto mr-2">
+      <%= form.label :birth_date, 'Fecha de Nac.' %>
+      <%= form.date_field :birth_date, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+
+    <div class="flex-auto mr-2">
+      <%= form.label :birth_book, 'Libro' %>
+      <%= form.text_field :birth_book, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+
+    <div class="flex-auto">
+      <%= form.label :birth_folio, 'Folio' %>
+      <%= form.text_field :birth_folio, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+  </div>
+
+  <div class="my-4">
+    <%= form.label :guardian_relationship, 'Parentesco de la persona con la que vive' %>
+    <%= form.text_field :guardian_relationship, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="flex my-4">
+    <div class="flex-auto mr-2">
+      <%= form.label :alergies, 'Enfermedades' %>
+      <%= form.text_field :alergies, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+
+    <div class="flex-auto">
+      <%= form.label :drugs, 'Medicamentos que usa' %>
+      <%= form.text_field :drugs, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+  </div>
+
+  <div class="flex my-4">
+    <div class="flex-auto mr-2">
+      <%= form.label :check_in_date, 'Inscrito' %>
+      <%= form.date_field :check_in_date, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+
+    <div class="flex-auto">
+      <%= form.label :check_out_date, 'Retirado' %>
+      <%= form.date_field :check_out_date, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+  </div>
+
+  <div class="my-4">
+    <%= form.label :initial_condition, 'Condición Inicial' %>
+    <%= form.select :initial_condition, [['Nuevo Ingreso', 'NEW'],['Promovido', 'PROMOTED'],['Repitente', 'REPEATING'],['Reentrante', 'REENTERED'],], {}, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <h4 class="text-xl">Contacto de emergencia</h4>
+  <div class="flex mb-5">
+    <div class="flex-auto mr-2">
+      <%= form.label :emergency_contact_name, 'Nombre' %>
+      <%= form.text_field :emergency_contact_name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+
+    <div class="flex-auto">
+      <%= form.label :emergency_contact_phone, 'Teléfono' %>
+      <%= form.text_field :emergency_contact_phone, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+  </div>
+
+  <div class="hidden">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id, value: current_user.id, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="inline">
+    <%= form.submit 'Guardar', class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+  </div>
+<% end %>

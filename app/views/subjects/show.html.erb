@@ -1,0 +1,34 @@
+<div class="mx-auto md:w-2/3 w-full flex">
+  <div class="mx-auto">
+
+    <%= render @subject %>
+
+    <hr class="my-4">
+    <h2 class="text-xl">Cursos con esta asignatura:</h2>
+
+    <div class="my-4">
+      <% @subject.classrooms.each do |classroom| %>
+        <div>- <%= classroom.name %></div>
+      <% end %>
+    </div>
+
+    <div class="">
+      <%= form_with(model: [@subject, @subject.classroom_subjects.build], class: "contents") do |form| %>
+        <div class="my-5">
+          <%= form.label :classroom_id, 'Curso' %>
+          <%= form.select :classroom_id, Classroom.all.select { |c| c.user_id == current_user.id }.collect { |c| [c.name, c.id] }, {}, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+        </div>
+
+        <div class="inline">
+          <%= form.submit 'Agregar', class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+        </div>
+      <% end %>
+    </div>
+
+    <%= link_to 'Editar', edit_subject_path(@subject), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <div class="inline-block ml-2">
+      <%= button_to 'Eliminar', subject_path(@subject), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+    </div>
+    <%= link_to 'Volver', subjects_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  </div>
+</div>

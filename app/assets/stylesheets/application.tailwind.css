@@ -4,11 +4,19 @@
 
 @layer components {
   .btn-primary {
-    @apply py-2 px-4 bg-blue-200;
+    @apply py-2 px-4 bg-blue-400;
   }
 
   .btn-link {
     @apply py-2 px-4 text-blue-400 underline;
+  }
+
+  .btn-danger {
+    @apply py-2 px-4 bg-red-400 text-white;
+  }
+
+  .btn-danger:hover {
+    @apply bg-red-500;
   }
 
   .field {
@@ -22,4 +30,8 @@
   .actions {
     @apply w-4/5 mx-auto mb-3 flex items-center;
   }
+}
+
+.cursive {
+  font-family: 'Merienda', cursive;
 }

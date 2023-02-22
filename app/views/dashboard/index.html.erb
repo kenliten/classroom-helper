@@ -1,4 +1,22 @@
-<div>
-  <h1 class="font-bold text-4xl">Dashboard#index</h1>
-  <p>Find me in app/views/dashboard/index.html.erb</p>
+<div class="flex items-center">
+  <div class="" style="flex: 1 auto;">
+    <h2 class="text-4xl cursive">Panel de Control</h2>
+    <small class="block text-gray-400">Administra tus cursos, asignaturas y estudiantes.</small>
+  </div>
+  <%= link_to 'Salir', destroy_user_session_path, data: { turbo_method: :delete, turbo_confirm: 'Deseas salir?' }, class: 'btn-danger' %>
+</div>
+<hr class="my-4">
+<div class="grid grid-cols-3 gap-4">
+  <a href="<%= classrooms_path %>" class="hover:scale-110 border border-[#44158f75] shadow rounded p-4 bg-[#44158f25]">
+    <h3 class="text-xl text-center">Cursos</h3>
+    <h3 class="text-6xl text-center"><%= @classrooms.count %></h3>
+  </a>
+  <a href="<%= subjects_path %>" class="hover:scale-110 border border-[#44158f75] shadow rounded p-4 bg-[#44158f25]">
+    <h3 class="text-xl text-center">Asignaturas</h3>
+    <h3 class="text-6xl text-center"><%= @subjects.count %></h3>
+  </a>
+  <a href="<%= students_path %>" class="hover:scale-110 border border-[#44158f75] shadow rounded p-4 bg-[#44158f25]">
+    <h3 class="text-xl text-center">Estudiantes</h3>
+    <h3 class="text-6xl text-center"><%= @students.count %></h3>
+  </a>
 </div>

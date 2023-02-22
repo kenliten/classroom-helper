@@ -1,0 +1,8 @@
+<div class="mx-auto md:w-2/3 w-full">
+  <h1 class="font-bold text-4xl">Editing classroom subject</h1>
+
+  <%= render "form", classroom_subject: @classroom_subject %>
+
+  <%= link_to "Show this classroom subject", @classroom_subject, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  <%= link_to "Back to classroom subjects", classroom_subjects_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+</div>

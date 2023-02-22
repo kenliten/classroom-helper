@@ -14,8 +14,24 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="bg-gray-100">
-    <%= yield %>
+  <body class="bg-[#44158f]">
+    <div class="flex">
+      <div class="min-h-[100vh] h-[100%] hidden lg:block bg-[#44158f] max-w-[256px] w-1/4" style="position: sticky;">
+        <%= image_tag '/images/default-monochrome.svg', class:'w-1/2 block mx-auto mt-10' %>
+        <div class="text-white flex flex-col w-2/3 mx-auto mt-10">
+          <%= link_to 'Panel de control', dashboard_path, class: '' %>
+          <%= link_to 'Cursos', classrooms_path, class: '' %>
+          <%= link_to 'Asignaturas', subjects_path, class: '' %>
+          <%= link_to 'Estudiantes', students_path, class: '' %>
+          <%= link_to 'Herramientas', tools_path, class: '' %>
+          <%= link_to 'Estádisticas', dashboard_path, class: '' %>
+          <%= link_to 'Mi Perfil', profile_path, class: '' %>
+        </div>
+      </div>
+      <div class="bg-white p-8" style="flex: 1 auto; overflow-y: scroll;">
+        <%= yield %>
+      </div>
+    </div>
     <% if (notice.present?) %>
       <div class="fixed bottom-4 -translate-x-1/2 left-1/2 px-3 py-1 rounded shadow bg-green-200 text-green-500">
         <%= notice %>
