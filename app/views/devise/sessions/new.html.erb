@@ -1,0 +1,31 @@
+<div class="w-full h-[100vh] flex items-center justify-center">
+  <div class="w-2/4 bg-white shadow shadow-lg border border-gray-200">
+    <img src="//picsum.photos/1000/200" class="w-full h-auto">
+    <h2 class="text-2xl text-center mt-2">Log in</h2>
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="field">
+        <%= f.label :email, 'Email' %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password, 'Contraseña' %>
+        <%= f.password_field :password, autocomplete: "current-password" %>
+      </div>
+
+      <% if devise_mapping.rememberable? %>
+        <div class="field">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me, "Recordarme" %>
+        </div>
+      <% end %>
+
+      <div class="actions">
+        <%= render "devise/shared/links" %>
+        <%= f.submit "Entrar", class:'btn-primary block ml-auto' %>
+      </div>
+    <% end %>
+
+  </div>
+</div>
