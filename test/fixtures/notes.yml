@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2023-02-23
+  time: 2023-02-23 03:40:21
+  grade: one
+  place: MyString
+  description: MyText
+  explanation: MyText
+
+two:
+  date: 2023-02-23
+  time: 2023-02-23 03:40:21
+  grade: two
+  place: MyString
+  description: MyText
+  explanation: MyText

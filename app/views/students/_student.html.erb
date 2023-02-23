@@ -1,84 +1,84 @@
 <% if action_name == "show" %>
 <div id="<%= dom_id student %>" class="grid grid-cols-2 gap-4">
-  <p class="my-2">
+  <div class="my-1">
     <strong class="block font-medium mb-1">Curso:</strong>
     <%= student.classroom.name %>
-  </p>
+  </div>
 
-  <p class="my-2">
+  <div class="my-1">
     <strong class="block font-medium mb-1">Nombre(s):</strong>
     <%= student.firstname %>
-  </p>
+  </div>
 
-  <p class="my-2">
+  <div class="my-1">
     <strong class="block font-medium mb-1">Apellido(s):</strong>
     <%= student.lastname %>
-  </p>
+  </div>
 
-  <p class="my-2">
+  <div class="my-1">
     <strong class="block font-medium mb-1">Nacionalidad:</strong>
     <%= student.nationality %>
-  </p>
+  </div>
 
-  <p class="my-2">
+  <div class="my-1">
     <strong class="block font-medium mb-1">Sexo:</strong>
     <%= student.gender == 'MALE' ? 'Masculino' : 'Femenino' %>
-  </p>
+  </div>
 
-  <p class="my-2">
+  <div class="my-1">
     <strong class="block font-medium mb-1">Fecha de Nacimiento:</strong>
     <%= "#{student.birth_date.day}/#{student.birth_date.month}/#{student.birth_date.year}" if student.birth_date %>
-  </p>
+  </div>
 
-  <p class="my-2">
+  <div class="my-1">
     <strong class="block font-medium mb-1">Libro:</strong>
     <%= student.birth_book %>
-  </p>
+  </div>
 
-  <p class="my-2">
+  <div class="my-1">
     <strong class="block font-medium mb-1">Folio:</strong>
     <%= student.birth_folio %>
-  </p>
+  </div>
 
-  <p class="my-2">
+  <div class="my-1">
     <strong class="block font-medium mb-1">Parentesco con quien vive:</strong>
     <%= student.guardian_relationship %>
-  </p>
+  </div>
 
-  <p class="my-2">
+  <div class="my-1">
     <strong class="block font-medium mb-1">Enfermedades:</strong>
     <%= student.alergies %>
-  </p>
+  </div>
 
-  <p class="my-2">
+  <div class="my-1">
     <strong class="block font-medium mb-1">Medicamentos que usa:</strong>
     <%= student.drugs %>
-  </p>
+  </div>
 
-  <p class="my-2">
+  <div class="my-1">
     <strong class="block font-medium mb-1">Contacto de emergencia:</strong>
     <%= student.emergency_contact_name %>
-  </p>
+  </div>
 
-  <p class="my-2">
+  <div class="my-1">
     <strong class="block font-medium mb-1">Telefono de Emergencias:</strong>
     <%= student.emergency_contact_phone %>
-  </p>
+  </div>
 
-  <p class="my-2">
+  <div class="my-1">
     <strong class="block font-medium mb-1">Fecha de ingreso:</strong>
     <%= "#{student.check_in_date.day}/#{student.check_in_date.month}/#{student.check_in_date.year}" if student.check_in_date %>
-  </p>
+  </div>
 
-  <p class="my-2">
+  <div class="my-1">
     <strong class="block font-medium mb-1">Fecha de retiro:</strong>
     <%= "#{student.check_out_date.day}/#{student.check_out_date.month}/#{student.check_out_date.year}" if student.check_out_date %>
-  </p>
+  </div>
 
-  <p class="my-2">
+  <div class="my-1">
     <strong class="block font-medium mb-1">Condici&oacute;n inicial:</strong>
     <%= translate_initial_condition(student.initial_condition) %>
-  </p>
+  </div>
 </div>
 
 <% else %>

@@ -1,0 +1,17 @@
+<div id="<%= dom_id note_student %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Note:</strong>
+    <%= note_student.note_id %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Student:</strong>
+    <%= note_student.student_id %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this note student", note_student, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this note student', edit_note_student_path(note_student), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

@@ -15,17 +15,19 @@
   </head>
 
   <body class="bg-[#44158f]">
-    <div class="flex">
+    <div class="flex fixed top-0 bottom-0 left-0 right-0">
       <div class="min-h-[100vh] h-[100%] hidden lg:block bg-[#44158f] max-w-[256px] w-1/4" style="position: sticky;">
-        <%= image_tag '/images/default-monochrome.svg', class:'w-1/2 block mx-auto mt-10' %>
-        <div class="text-white flex flex-col w-2/3 mx-auto mt-10">
-          <%= link_to 'Panel de control', dashboard_path, class: '' %>
-          <%= link_to 'Cursos', classrooms_path, class: '' %>
-          <%= link_to 'Asignaturas', subjects_path, class: '' %>
-          <%= link_to 'Estudiantes', students_path, class: '' %>
-          <%= link_to 'Herramientas', tools_path, class: '' %>
-          <%= link_to 'Estádisticas', dashboard_path, class: '' %>
-          <%= link_to 'Mi Perfil', profile_path, class: '' %>
+        <%= image_tag '/images/default-monochrome.svg', class:'w-2/3 block mx-auto mt-10' %>
+        <div class="text-white flex flex-col w-2/3 mx-auto mt-6">
+          <%= link_to tag.i('', class:'bi mr-2 bi-speedometer')+'Panel de control', dashboard_path, class: 'py-1 mb-1' %>
+          <%= link_to tag.i('', class:'bi mr-2 bi-diagram-3-fill')+'Cursos', classrooms_path, class: 'py-1 mb-1' %>
+          <%= link_to tag.i('', class:'bi mr-2 bi-journal-text')+'Asignaturas', subjects_path, class: 'py-1 mb-1' %>
+          <%= link_to tag.i('', class:'bi mr-2 bi-people-fill')+'Estudiantes', students_path, class: 'py-1 mb-1' %>
+          <%= link_to tag.i('', class:'bi mr-2 bi-journal-bookmark')+'Registro Anecdótico', students_path, class: 'py-1 mb-1' %>
+          <%= link_to tag.i('', class:'bi mr-2 bi-tools')+'Herramientas', tools_path, class: 'py-1 mb-1' %>
+          <%= link_to tag.i('', class:'bi mr-2 bi-bar-chart-fill')+'Estádisticas', dashboard_path, class: 'py-1 mb-1' %>
+          <%= link_to tag.i('', class:'bi mr-2 bi-person-circle')+'Mi Perfil', edit_user_registration_path, class: 'py-1 mb-1' %>
+          <%= link_to tag.i('', class:'bi mr-2 bi-box-arrow-left')+'Salir', destroy_user_session_path, data: { turbo_method: :delete }, class: 'py-1 mb-1 hover:text-red-500' %>
         </div>
       </div>
       <div class="bg-white p-8" style="flex: 1 auto; overflow-y: scroll;">

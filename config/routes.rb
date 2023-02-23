@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :note_students
+  resources :notes
   resources :students do
     resources :student_guardians
   end

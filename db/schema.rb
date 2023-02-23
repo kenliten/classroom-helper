@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_22_143451) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_23_074110) do
   create_table "classroom_subjects", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "subject_id", null: false
     t.bigint "classroom_id", null: false
@@ -30,6 +30,27 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_22_143451) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_classrooms_on_user_id"
+  end
+
+  create_table "note_students", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "note_id", null: false
+    t.bigint "student_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["note_id"], name: "index_note_students_on_note_id"
+    t.index ["student_id"], name: "index_note_students_on_student_id"
+  end
+
+  create_table "notes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.date "date"
+    t.time "time"
+    t.bigint "classroom_id", null: false
+    t.string "place"
+    t.text "description"
+    t.text "explanation"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["classroom_id"], name: "index_notes_on_classroom_id"
   end
 
   create_table "student_guardians", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -102,6 +123,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_22_143451) do
   add_foreign_key "classroom_subjects", "classrooms"
   add_foreign_key "classroom_subjects", "subjects"
   add_foreign_key "classrooms", "users"
+  add_foreign_key "note_students", "notes"
+  add_foreign_key "note_students", "students"
+  add_foreign_key "notes", "classrooms"
   add_foreign_key "student_guardians", "students"
   add_foreign_key "students", "classrooms"
   add_foreign_key "students", "users"
